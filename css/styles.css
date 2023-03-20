@@ -443,14 +443,14 @@ address {
 }
 
 .customer-list-link:hover {
-  border: 1px solid var(--pressed-state-color);
+  border-color: 1px solid var(--pressed-state-color);
 }
 .customer-list-link:focus .customer-icon {
   fill: var(--pressed-state-color);
 }
 
 .customer-list-link:focus {
-  border: 1px solid var(--pressed-state-color);
+  border-color: 1px solid var(--pressed-state-color);
 }
 
 .customer-list-link:hover .customer-icon {
