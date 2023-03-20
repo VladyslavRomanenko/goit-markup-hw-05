@@ -159,7 +159,6 @@ address {
   padding-top: 24px;
   padding-bottom: 24px;
   border-bottom: 1px solid var(--header-shadow-color);
-  width: 100vw;
 }
 
 .page-header-container {
@@ -458,12 +457,12 @@ address {
   transition: fill var(--btn-link-time) var(--btn-link-cubic);
 }
 
-.customer-list-link:hover {
-  transition: fill var(--btn-link-time) var(--btn-link-cubic);
+.customer-list-link:focus .customer-icon {
+  transition: border var(--btn-link-time) var(--btn-link-cubic);
 }
 
-.customer-list-link:focus .customer-icon {
-  transition: fill var(--btn-link-time) var(--btn-link-cubic);
+.customer-list-link:hover {
+  transition: border var(--btn-link-time) var(--btn-link-cubic);
 }
 
 .customer-list-link:focus {
