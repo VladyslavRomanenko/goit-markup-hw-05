@@ -458,11 +458,11 @@ address {
 }
 
 .customer-list-link:focus .customer-icon {
-  transition: border var(--btn-link-time) var(--btn-link-cubic);
+  transition: border-color var(--btn-link-time) var(--btn-link-cubic);
 }
 
 .customer-list-link:hover {
-  transition: border var(--btn-link-time) var(--btn-link-cubic);
+  transition: border-color var(--btn-link-time) var(--btn-link-cubic);
 }
 
 .customer-list-link:focus {
