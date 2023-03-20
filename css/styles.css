@@ -84,6 +84,12 @@ address {
   padding-bottom: 120px;
 }
 
+.is-hidden {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+
 /* ================= COMPONENTS ================= */
 
 .logo {
@@ -190,8 +196,13 @@ address {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--dark-color);
-  transition: color var(--btn-link-time) var(--btn-link-cubic);
   position: relative;
+  transition: color var(--btn-link-time) var(--btn-link-cubic);
+}
+
+.menu-link:hover,
+.menu-link:focus {
+  color: var(--pressed-state-color);
 }
 
 .menu-link::after {
@@ -204,6 +215,7 @@ address {
   border-radius: 2px;
   content: "";
   margin-top: 20px;
+  transition: width var(--btn-link-time) var(--btn-link-cubic);
 }
 
 .menu-link:hover:after,
@@ -211,9 +223,16 @@ address {
   width: 100%;
 }
 
-.menu-link:hover,
-.menu-link:focus {
-  color: var(--pressed-state-color);
+.current-link::after {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--pressed-state-color);
+  border-radius: 2px;
+  content: "";
+  margin-top: 20px;
 }
 
 .contact-link {
@@ -282,7 +301,8 @@ address {
   background-color: var(--primary-brand-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
-  transition: background-color var(--btn-link-time) var(--btn-link-cubic);
+  transition: background-color var(--btn-link-time) var(--btn-link-cubic),
+    box-shadow var(--btn-link-time) var(--btn-link-cubic);
 }
 
 .hero-button:hover,
@@ -579,24 +599,73 @@ address {
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
-/* .portfolio-link:hover .portfolio-overlay,
-.portfolio-link:focus .portfolio-overlay {
-  transform: translateY(0);
-}
-
+/* ======CARDSSSSS====== */
 .portfolio-list-box {
   position: relative;
   overflow: hidden;
 }
 
-.portfolio-overlay {
+.portfolio-image-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  background-color: var(--primary-brand-color);
+  color: var(--light-color);
+  padding: 40px 32px;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
-  padding: 20px;
-  transform: translateY(100%);
-  background-color: var(--primary-brand-color);
-  transition: transform var(--btn-link-time) linear;
-} */
+  transform: translateY(101%);
+  transition: transform var(--btn-link-time) var(--btn-link-time);
+}
+
+.portfolio-link:hover .portfolio-image-text,
+.portfolio-link:focus .portfolio-image-text {
+  transform: translate(0%);
+}
+
+/* ===============MODAL ======*/
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(46, 47, 66, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: opacity 500ms linear, visibility 700ms linear;
+}
+
+.modal {
+  /* max-width: 100%; */
+  width: 408px;
+  height: 576px;
+  border-radius: 4px;
+  background-color: var(--modal-background);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.btn-modal-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #e7e9fc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-close-icon {
+  fill: var(--dark-color);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
